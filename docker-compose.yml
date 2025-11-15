@@ -1,0 +1,19 @@
+x-gpu-common: &gpu-common
+  deploy:
+    resources:
+      reservations:
+        devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+
+services:
+  glomap:
+    <<: *gpu-common
+    build:
+      context: ./glomap
+    image: glomap:latest
+    container_name: glomap_container
+    volumes:
+      - ./data/input:/data/input
+      - ./data/output/glomap:/data/output

@@ -1,0 +1,4 @@
+data/input/*
+data/output/
+!.gitkeep
+compose_log.txt
